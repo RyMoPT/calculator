@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Making a calculator</title>
+    </head>
+    <body>
+        <style type=text/css>
+
+
+        .theDisplay {
+            grid-area: theDisplay;
+        }
+        .nine {
+            grid-area: nine;
+        }
+        .eight {
+            grid-area: eight;
+        }
+        .seven {
+            grid-area: seven;
+        }
+        .six {
+            grid-area: six;
+        }
+        .five {
+            grid-area: five;
+        }
+        .four {
+            grid-area: four;
+        }
+        .three {
+            grid-area: three;
+        }
+        .two {
+            grid-area: two;
+        }
+        .one {
+            grid-area: one;
+        }
+        .equal {
+            grid-area: equal;
+        }
+        .add {
+            grid-area: add;
+        }
+        .subtract {
+            grid-area: subtract;
+        }
+        .multiply {
+            grid-area: multiply;
+        }
+        .divide {
+            grid-area: divide;
+        }
+        .clear {
+            grid-area: clear;
+        }
+        .decimal {
+            grid-area: decimal;
+        }
+        .zero {
+            grid-area: zero;
+        }
+        
+
+
+
+        .container {
+            margin: auto;
+            display: grid;
+            width: 500px;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas:
+                "theDisplay theDisplay theDisplay theDisplay"
+                ". . clear add"
+                "seven eight nine subtract"
+                "four five six multiply"
+                "one two three divide"
+                "decimal zero . equal"                
+        }
+        
+        
+        
+        </style>
+
+
+
+        <div class = container>
+        <div class = theDisplay> testing the displayyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</div>
+            <button class="item nine">9</button>
+            <button class="item eight">8</button>
+            <button class="item seven">7</button>
+            <button class="item six">6</button>
+            <button class="item five">5</button>
+            <button class="item four">4</button>
+            <button class="item three">3</button>
+            <button class="item two">2</button>
+            <button class="item one">1</button>
+            <button class="item zero">0</button>
+            <button class="item add">+</button>
+            <button class="item subtract">-</button>
+            <button class="item multiply">x</button>
+            <button class="item divide">/</button>
+            <button class="item decimal">.</button>
+            <button class="item clear">Clear</button>
+            <button class="item equal">=</button>
+
+
+
+    </div>
+    </body>
+</html>
