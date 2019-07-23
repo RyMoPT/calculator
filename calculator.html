@@ -109,9 +109,38 @@
     </div>
     <script>
     
+        
+    function add(a,b) {
+        return a+b;
+    }
+    function subtract(a,b) {
+        return a-b;
+    }
+    function multiply(a,b) {
+        return a*b;
+    }
+    function divide(a,b) {
+        return a/b;
+    }
+
+    function operate(operator,a,b) {
+        if (operator === add) {
+            return add(a,b);
+        }
+        else if (operator === subtract) {
+            return subtract(a,b);
+        }
+        else if (operater === multiply) {
+            return multiply(a,b);
+        }
+        else if (operator === divide) {
+            return divide(a,b);
+        }
+
+    }
 
     const button = document.querySelectorAll('.item');
-    const holdingvar = 0;
+    let holdingvar = 0;
     for (i=0; button.length > i; i++) {
     button[i].addEventListener('click', function(e) {
         const addtovar = Number(holdingvar + this.id);
