@@ -99,13 +99,13 @@
             <button class="item two" id='2'>2</button>
             <button class="item one" id='1'>1</button>
             <button class="item zero" id='0'>0</button>
-            <button class="item add" id='+'>+</button>
-            <button class="item subtract" id='-'>-</button>
-            <button class="item multiply" id='*'>*</button>
-            <button class="item divide" id='/'>/</button>
-            <button class="item decimal" id='.'>.</button>
-            <button class="item clear">Clear</button>
-            <button class="item equal">=</button>
+            <button class="func add" id='+'>+</button>
+            <button class="func subtract" id='-'>-</button>
+            <button class="func multiply" id='*'>*</button>
+            <button class="func divide" id='/'>/</button>
+            <button class="func decimal" id='.'>.</button>
+            <button class="func clear">Clear</button>
+            <button class="func equal">=</button>
     </div>
     <script>
     
@@ -143,11 +143,19 @@
     let holdingvar = 0;
     for (i=0; button.length > i; i++) {
     button[i].addEventListener('click', function(e) {
-        const addtovar = Number(holdingvar + this.id);
+        holdingvar = Number(holdingvar + this.id);
         const display = document.querySelector(".theDisplay");
-        display.innerHTML = addtovar;
+        display.innerHTML = holdingvar;
         console.log(this.id);
-        return this.id;
+    })};
+
+    const mathFunctions = document.querySelectorAll(".func");
+    for (i=0; mathFunctions.length > i; i++) {
+    mathFunctions[i].addEventListener('click', function(e) {
+        holdingvar = add(holdingvar+holdingvar);
+        const display = document.querySelector(".theDisplay");
+        display.innerHTML = holdingvar;
+        console.log(this.id);
     })};
 
     
