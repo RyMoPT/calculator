@@ -89,23 +89,23 @@
 
         <div class = container>
         <div class = theDisplay> testing the displayyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</div>
-            <button class="item nine" id='9'>9</button>
-            <button class="item eight" id= '8'>8</button>
-            <button class="item seven" id= '7'>7</button>
-            <button class="item six" id= '6'>6</button>
-            <button class="item five" id='5'>5</button>
-            <button class="item four" id='4'>4</button>
-            <button class="item three" id='3'>3</button>
-            <button class="item two" id='2'>2</button>
-            <button class="item one" id='1'>1</button>
-            <button class="item zero" id='0'>0</button>
-            <button class="func add" id='+'>+</button>
-            <button class="func subtract" id='-'>-</button>
-            <button class="func multiply" id='*'>*</button>
-            <button class="func divide" id='/'>/</button>
-            <button class="func decimal" id='.'>.</button>
-            <button class="func clear">Clear</button>
-            <button class="func equal">=</button>
+            <button class="btn item nine" id='9'>9</button>
+            <button class="btn item eight" id= '8'>8</button>
+            <button class="btn item seven" id= '7'>7</button>
+            <button class="btn item six" id= '6'>6</button>
+            <button class="btn item five" id='5'>5</button>
+            <button class="btn item four" id='4'>4</button>
+            <button class="btn item three" id='3'>3</button>
+            <button class="btn item two" id='2'>2</button>
+            <button class="btn item one" id='1'>1</button>
+            <button class="btn item zero" id='0'>0</button>
+            <button class="btn func add" id='+'>+</button>
+            <button class="btn func subtract" id='-'>-</button>
+            <button class="btn func multiply" id='*'>*</button>
+            <button class="btn func divide" id='/'>/</button>
+            <button class="btn func decimal" id='.'>.</button>
+            <button class="btn func clear">Clear</button>
+            <button class="btn equal" id='equal'>=</button>
     </div>
     <script>
     
@@ -123,40 +123,82 @@
         return a/b;
     }
 
+    
     function operate(operator,a,b) {
-        if (operator === add) {
+        switch (operator) {
+            case '+':
             return add(a,b);
-        }
-        else if (operator === subtract) {
-            return subtract(a,b);
-        }
-        else if (operater === multiply) {
-            return multiply(a,b);
-        }
-        else if (operator === divide) {
-            return divide(a,b);
-        }
+            break;
+            
+            case '-':
+            return subtract(a,b)
+            break;
 
-    }
+            case '*':
+            return multiply(a,b)
+            break;
+
+            case '/':
+            return divide(a,b)
+        }}
+        // if (operator === add) {
+        //     return add(a,b);
+        // }
+        // else if (operator === subtract) {
+        //     return subtract(a,b);
+        // }
+        // else if (operater === multiply) {
+        //     return multiply(a,b);
+        // }
+        // else if (operator === divide) {
+        //     return divide(a,b);
+        // }
+
+   // }
 
     const button = document.querySelectorAll('.item');
-    let holdingvar = 0;
+    const display = document.querySelector(".theDisplay");
+    const equal = document.querySelector(".equal");
+
+
+    let holdingvarA = 0;
+    let holdingvarB = 0;
+    let holdingvarC = 0;
+    let randomOperator = 0;
+
     for (i=0; button.length > i; i++) {
     button[i].addEventListener('click', function(e) {
-        holdingvar = Number(holdingvar + this.id);
-        const display = document.querySelector(".theDisplay");
-        display.innerHTML = holdingvar;
+        holdingvarA = Number(holdingvarA + this.id);
+        display.innerHTML = holdingvarA;
         console.log(this.id);
-    })};
+
+
+    });};
+    
 
     const mathFunctions = document.querySelectorAll(".func");
     for (i=0; mathFunctions.length > i; i++) {
     mathFunctions[i].addEventListener('click', function(e) {
-        holdingvar = add(holdingvar+holdingvar);
-        const display = document.querySelector(".theDisplay");
-        display.innerHTML = holdingvar;
+        randomOperator = this.id;
+        display.innerHTML = randomOperator;
+        holdingvarB = holdingvarA
+        holdingvarA=0;
         console.log(this.id);
+        console.log(holdingvarB);
+
+      
+
     })};
+
+
+    equal.addEventListener('click', function(e) {
+        console.log(randomOperator,holdingvarB,holdingvarA);
+            holdingvarC = operate(randomOperator,holdingvarB,holdingvarA);
+            console.log(holdingvarA, holdingvarB);    
+            display.innerHTML = holdingvarC;
+            });
+
+  
 
     
     
