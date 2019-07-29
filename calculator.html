@@ -62,6 +62,9 @@
         .zero {
             grid-area: zero;
         }
+        .back {
+            grid-area: back;
+        }
         
 
 
@@ -79,7 +82,7 @@
                 "seven eight nine subtract"
                 "four five six multiply"
                 "one two three divide"
-                "decimal zero . equal"                
+                "decimal zero back equal"                
         }
         
         
@@ -107,6 +110,7 @@
             <button class="btn decimal" id='.'>.</button>
             <button class="btn clear">Clear</button>
             <button class="btn equal" id='equal'>=</button>
+            <button class="btn back" id='back'> Back </button>
     </div>
     <script>
     
@@ -166,19 +170,22 @@
     const clear = document.querySelector(".clear");
     const mathFunctions = document.querySelectorAll(".func");
     const decimal = document.querySelector(".decimal");
+    const back = document.querySelector(".back");
 
 
     let currentNumber= Number(0);
     let storedNumber= 0;
     let result=0;
 
+//listening for numbers
     for (i=0; button.length > i; i++) {
     button[i].addEventListener('click', function(e) {
         currentNumber = Number(currentNumber + this.id);
         display.innerHTML = currentNumber;
         console.log(this.id);
     })};
-    
+
+    //adding decimal to currentNumber on display. Also removes decimal button on click
     decimal.addEventListener('click', function(e) {
         currentNumber = (currentNumber + this.id);
         display.innerHTML = currentNumber;
@@ -186,7 +193,7 @@
         console.log(this.id);
     });
     
-
+    //Stores the operator used and the previously entered number. Resets current number to 0. Also brings back decimal button.
     for (i=0; mathFunctions.length > i; i++) {
     mathFunctions[i].addEventListener('click', function(e) {
         randomOperator = this.id;
@@ -197,7 +204,7 @@
         console.log(this.id);
     })};
 
-
+    // Performs operate function and the 2 numbers. If user tries to divide by 0, gets error msg.
     equal.addEventListener('click', function(e) {
         console.log(randomOperator,storedNumber,currentNumber);
         if (randomOperator==='/' && currentNumber===0) {
@@ -207,7 +214,8 @@
             display.innerHTML = result;
             currentNumber=0;
             }});
-
+    
+    //Clear button to reset everything to 0.
     clear.addEventListener('click', function(e) {
         result=0;
         storedNumber=0;
@@ -216,6 +224,19 @@
         display.innerHTML = result;
 
     });
+    
+    //Back button converting to string then removing last character before converting back into a number
+    back.addEventListener('click', function(e) {
+        //convert to string
+        currentNumber = currentNumber.toString();
+        //remove last character from string
+        currentNumber = currentNumber.substring(0, currentNumber.length -1);
+        display.innerHTML = currentNumber;
+        //convert back to number
+        currentNumber = Number(currentNumber);
+    });
+
+    
 
   
 
