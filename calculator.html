@@ -10,7 +10,21 @@
         .theDisplay {
             grid-area: theDisplay;
             justify-self: right;
+            align-self: center;
+            font-size: 80px;
+            height: 80px;
+            color: #c8c8c8
         }
+
+        .btn {
+            font-size: 30px;
+            color: white;
+            background-color: #3e3e3e;
+        }
+        .func {
+            background-color: #757575;
+        }
+
         .nine {
             grid-area: nine;
         }
@@ -40,6 +54,7 @@
         }
         .equal {
             grid-area: equal;
+            background-color: #c8c8c8;
         }
         .add {
             grid-area: add;
@@ -65,7 +80,40 @@
         .back {
             grid-area: back;
         }
-        
+        h3 {
+            margin: auto;
+            text-align: center;
+            font-size: 90px;
+            color: #c8c8c8;
+            font-weight: bold;
+            letter-spacing: .1em;
+            text-shadow: 
+                0 -1px 0 #fff, 
+                0 1px 0 #2e2e2e, 
+                0 2px 0 #2c2c2c, 
+                0 3px 0 #2a2a2a, 
+                0 4px 0 #282828, 
+                0 5px 0 #262626, 
+                0 6px 0 #242424, 
+                0 7px 0 #222, 
+                0 8px 0 #202020, 
+                0 9px 0 #1e1e1e, 
+                0 10px 0 #1c1c1c, 
+                0 11px 0 #1a1a1a, 
+                0 12px 0 #181818, 
+                0 13px 0 #161616, 
+                0 14px 0 #141414, 
+                0 15px 0 #121212, 
+                0 22px 30px rgba(0, 0, 0, 0.9);            
+        }
+
+        body {
+            background-color: rgb(71, 71, 71);
+        }
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+        }
 
 
 
@@ -75,6 +123,7 @@
             width: 400px;
             height: 500px;
             grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
             grid-template-rows: auto;
             grid-template-areas:
                 "theDisplay theDisplay theDisplay theDisplay"
@@ -85,14 +134,14 @@
                 "decimal zero back equal"                
         }
         
-        
-        
         </style>
 
-
+        <div class= 'header'>
+            <h3>Basic Calculator</h3>
+        </div>
 
         <div class = container>
-        <div class = theDisplay> testing the displayyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</div>
+        <div class = theDisplay>0</div>
             <button class="btn item nine" id='9'>9</button>
             <button class="btn item eight" id= '8'>8</button>
             <button class="btn item seven" id= '7'>7</button>
@@ -171,6 +220,7 @@
     const mathFunctions = document.querySelectorAll(".func");
     const decimal = document.querySelector(".decimal");
     const back = document.querySelector(".back");
+    
 
 
     let currentNumber= Number(0);
@@ -183,6 +233,15 @@
         currentNumber = Number(currentNumber + this.id);
         display.innerHTML = currentNumber;
         console.log(this.id);
+        if (currentNumber.toString().length > 8 && currentNumber.toString().length < 10) {
+    display.style.fontSize = '60px';
+}   else if (currentNumber.toString().length >= 10 && currentNumber.toString().length < 14) {
+    display.style.fontSize = '40px';
+}   else if (currentNumber.toString().length >= 14) {
+    display.style.fontSize = '20px';
+}   else {
+    display.style.fontSize = '80px';
+}
     })};
 
     //adding decimal to currentNumber on display. Also removes decimal button on click
@@ -208,7 +267,7 @@
     equal.addEventListener('click', function(e) {
         console.log(randomOperator,storedNumber,currentNumber);
         if (randomOperator==='/' && currentNumber===0) {
-            display.innerHTML= 'ERROR, please do not divide by 0';
+            display.innerHTML= 'Nice try.';
         }else {
             result = operate(randomOperator,(result+ storedNumber),currentNumber);
             display.innerHTML = result;
@@ -221,6 +280,7 @@
         storedNumber=0;
         currentNumber=0;
         randomOperator=0;
+        decimal.style.display = 'inline';
         display.innerHTML = result;
 
     });
@@ -238,10 +298,13 @@
 
     
 
-  
+    
 
     
     
     </script>
     </body>
+    <footer>
+        <h1>Designed by RyMoPT</h1>
+    </footer>
 </html>
