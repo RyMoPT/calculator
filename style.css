@@ -113,7 +113,7 @@
         .container {
             margin: auto;
             display: grid;
-            width: 400px;
+            max-width: 25%;
             height: 500px;
             grid-template-columns: repeat(4, 1fr);
             overflow: hidden;
