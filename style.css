@@ -1,0 +1,128 @@
+.theDisplay {
+            grid-area: theDisplay;
+            justify-self: right;
+            align-self: center;
+            font-size: 80px;
+            height: 80px;
+            color: #c8c8c8
+        }
+
+        .btn {
+            font-size: 30px;
+            color: white;
+            background-color: #3e3e3e;
+        }
+        .func {
+            background-color: #757575;
+        }
+
+        .nine {
+            grid-area: nine;
+        }
+        .eight {
+            grid-area: eight;
+        }
+        .seven {
+            grid-area: seven;
+        }
+        .six {
+            grid-area: six;
+        }
+        .five {
+            grid-area: five;
+        }
+        .four {
+            grid-area: four;
+        }
+        .three {
+            grid-area: three;
+        }
+        .two {
+            grid-area: two;
+        }
+        .one {
+            grid-area: one;
+        }
+        .equal {
+            grid-area: equal;
+            background-color: #c8c8c8;
+        }
+        .add {
+            grid-area: add;
+        }
+        .subtract {
+            grid-area: subtract;
+        }
+        .multiply {
+            grid-area: multiply;
+        }
+        .divide {
+            grid-area: divide;
+        }
+        .clear {
+            grid-area: clear;
+        }
+        .decimal {
+            grid-area: decimal;
+        }
+        .zero {
+            grid-area: zero;
+        }
+        .back {
+            grid-area: back;
+        }
+        h3 {
+            margin: auto;
+            text-align: center;
+            font-size: 6vw;
+            color: #c8c8c8;
+            font-weight: bold;
+            letter-spacing: .1em;
+            text-shadow: 
+                0 -1px 0 #fff, 
+                0 1px 0 #2e2e2e, 
+                0 2px 0 #2c2c2c, 
+                0 3px 0 #2a2a2a, 
+                0 4px 0 #282828, 
+                0 5px 0 #262626, 
+                0 6px 0 #242424, 
+                0 7px 0 #222, 
+                0 8px 0 #202020, 
+                0 9px 0 #1e1e1e, 
+                0 10px 0 #1c1c1c, 
+                0 11px 0 #1a1a1a, 
+                0 12px 0 #181818, 
+                0 13px 0 #161616, 
+                0 14px 0 #141414, 
+                0 15px 0 #121212, 
+                0 22px 30px rgba(0, 0, 0, 0.9);            
+        }
+
+        body {
+            background-color: rgb(71, 71, 71);
+        }
+        h1 {
+            margin-top: 100px;
+            text-align: center;
+            font-family: fantasy;
+        }
+        a {
+            color:black;
+             text-decoration: none; /* no underline */
+        }
+        .container {
+            margin: auto;
+            display: grid;
+            width: 400px;
+            height: 500px;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
+            grid-template-rows: auto;
+            grid-template-areas:
+                "theDisplay theDisplay theDisplay theDisplay"
+                ". . clear add"
+                "seven eight nine subtract"
+                "four five six multiply"
+                "one two three divide"
+                "decimal zero back equal"                
+        }
