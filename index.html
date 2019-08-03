@@ -132,7 +132,7 @@
             display.innerHTML= 'Nice try.';
         }else {
             result = result + storedNumber;
-            result = operate(randomOperator,Number(result),Number(currentNumber));
+            result = operate(randomOperator,Number(storedNumber),Number(currentNumber));
             console.log(randomOperator,storedNumber,currentNumber,result);
             if (result.toString().length >= 8) {
                 display.innerHTML = result.toFixed(4);
