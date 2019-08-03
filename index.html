@@ -94,31 +94,22 @@
     
 
 
-    let currentNumber= Number(0);
+    let currentNumber= "";
     let storedNumber= 0;
     let result=0;
 
 //listening for numbers
     for (i=0; button.length > i; i++) {
     button[i].addEventListener('click', function(e) {
-        currentNumber = Number(currentNumber + this.id);
-        display.innerHTML = currentNumber;
+        currentNumber = (currentNumber + this.id);
+        display.innerHTML = (currentNumber);
         console.log(this.id);
-        if (currentNumber.toString().length > 8 && currentNumber.toString().length < 10) {
-    display.style.fontSize = '60px';
-}   else if (currentNumber.toString().length >= 10 && currentNumber.toString().length < 14) {
-    display.style.fontSize = '40px';
-}   else if (currentNumber.toString().length >= 14) {
-    display.style.fontSize = '20px';
-}   else {
-    display.style.fontSize = '80px';
-}
     })};
 
     //adding decimal to currentNumber on display. Also removes decimal button on click
     decimal.addEventListener('click', function(e) {
-        currentNumber = (currentNumber + this.id);
-        display.innerHTML = currentNumber;
+        currentNumber = parseFloat(currentNumber) + this.id;
+        display.innerHTML = (currentNumber);
         decimal.style.display = 'none';
         console.log(this.id);
     });
@@ -127,8 +118,8 @@
     for (i=0; mathFunctions.length > i; i++) {
     mathFunctions[i].addEventListener('click', function(e) {
         randomOperator = this.id;
-        storedNumber = currentNumber
-        currentNumber=0;
+        storedNumber = (currentNumber);
+        currentNumber='';
         display.innerHTML = this.id;
         decimal.style.display = 'inline';
         console.log(this.id);
@@ -137,19 +128,24 @@
     // Performs operate function and the 2 numbers. If user tries to divide by 0, gets error msg.
     equal.addEventListener('click', function(e) {
         console.log(randomOperator,storedNumber,currentNumber);
-        if (randomOperator==='/' && currentNumber===0) {
+        if (randomOperator==='/' && currentNumber==='0') {
             display.innerHTML= 'Nice try.';
         }else {
-            result = operate(randomOperator,(result+ storedNumber),currentNumber);
-            display.innerHTML = result;
-            currentNumber=0;
+            result = result + storedNumber;
+            result = operate(randomOperator,Number(result),Number(currentNumber));
+            console.log(randomOperator,storedNumber,currentNumber,result);
+            if (result.toString().length >= 8) {
+                display.innerHTML = result.toFixed(4);
+            }else { display.innerHTML = result;}
+            currentNumber='';
+            
             }});
     
     //Clear button to reset everything to 0.
     clear.addEventListener('click', function(e) {
         result=0;
         storedNumber=0;
-        currentNumber=0;
+        currentNumber='';
         randomOperator=0;
         decimal.style.display = 'inline';
         display.innerHTML = result;

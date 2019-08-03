@@ -118,10 +118,11 @@
             height: 450px;
             grid-template-columns: repeat(4, 1fr);
             overflow: hidden;
+            grid-gap: 5px;
             grid-template-rows: auto;
             grid-template-areas:
                 "theDisplay theDisplay theDisplay theDisplay"
-                ". . clear add"
+                "clear clear clear add"
                 "seven eight nine subtract"
                 "four five six multiply"
                 "one two three divide"
