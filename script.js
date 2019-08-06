@@ -83,6 +83,7 @@
         if (currentNumber==='') {
             currentNumber=0 + this.id;
             display.innerHTML = currentNumber;
+            decimal.style.display = 'none';
             console.log(currentNumber);
         } else{
         currentNumber = parseFloat(currentNumber) + this.id;
