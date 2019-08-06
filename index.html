@@ -69,20 +69,25 @@
             default:
             return currentNumber;
         }}
-        // if (operator === add) {
-        //     return add(a,b);
-        // }
-        // else if (operator === subtract) {
-        //     return subtract(a,b);
-        // }
-        // else if (operater === multiply) {
-        //     return multiply(a,b);
-        // }
-        // else if (operator === divide) {
-        //     return divide(a,b);
-        // }
+//     function operate(operator,a,b) {
+//         if (operator === '+') {
+//             return add(a,b);
+//         }
+//         else if (operator === '-') {
+//             return subtract(a,b);
+//         }
+//         else if (operator ==='*' && b===0) {
+//         return multiply(a,1);
+//         }
+//         else if (operator === '/') {
+//             return divide(a,b);
+//         }
+//         else if (operator === '*') {
+//             return multiply(a,b);
+//         }
+        
 
-   // }
+//    }
 
     const button = document.querySelectorAll('.item');
     const display = document.querySelector(".theDisplay");
@@ -96,47 +101,52 @@
 
     let currentNumber= "";
     let storedNumber= 0;
-    let result=0;
+    let result='';
+    let lastOperand=0;
+    let randomOperator='';
 
-//listening for numbers
+//listening for numbers and calculates on the go
     for (i=0; button.length > i; i++) {
     button[i].addEventListener('click', function(e) {
         currentNumber = (currentNumber + this.id);
+        storedNumber= operate(randomOperator,Number(storedNumber),Number(currentNumber));
+        console.log(storedNumber);
         display.innerHTML = (currentNumber);
         console.log(this.id);
     })};
 
     //adding decimal to currentNumber on display. Also removes decimal button on click
     decimal.addEventListener('click', function(e) {
+        if (currentNumber==='') {
+            currentNumber=0 + this.id;
+            display.innerHTML = currentNumber;
+            console.log(currentNumber);
+        } else{
         currentNumber = parseFloat(currentNumber) + this.id;
         display.innerHTML = (currentNumber);
         decimal.style.display = 'none';
-        console.log(this.id);
+        console.log(this.id);}
     });
     
-    //Stores the operator used and the previously entered number. Resets current number to 0. Also brings back decimal button.
+    //Displays operator used. Resets current number to 0. Also brings back decimal button.
     for (i=0; mathFunctions.length > i; i++) {
     mathFunctions[i].addEventListener('click', function(e) {
         randomOperator = this.id;
-        storedNumber = (currentNumber);
         currentNumber='';
         display.innerHTML = this.id;
         decimal.style.display = 'inline';
         console.log(this.id);
     })};
 
-    // Performs operate function and the 2 numbers. If user tries to divide by 0, gets error msg.
+    // Displays final answer. If user tries to divide by 0, gets error msg.
     equal.addEventListener('click', function(e) {
         console.log(randomOperator,storedNumber,currentNumber);
         if (randomOperator==='/' && currentNumber==='0') {
             display.innerHTML= 'Nice try.';
         }else {
-            result = result + storedNumber;
-            result = operate(randomOperator,Number(storedNumber),Number(currentNumber));
-            console.log(randomOperator,storedNumber,currentNumber,result);
-            if (result.toString().length >= 8) {
-                display.innerHTML = result.toFixed(4);
-            }else { display.innerHTML = result;}
+            if (storedNumber.toString().length >= 8) {
+                display.innerHTML = storedNumber.toFixed(4);
+            }else { display.innerHTML = storedNumber;}
             currentNumber='';
             
             }});
