@@ -51,7 +51,7 @@
         
 
 //    }
-
+    const toggleNightBtn = document.querySelector('.toggleNightBtn')
     const button = document.querySelectorAll('.item');
     const display = document.querySelector(".theDisplay");
     const equal = document.querySelector(".equal");
@@ -59,7 +59,8 @@
     const mathFunctions = document.querySelectorAll(".func");
     const decimal = document.querySelector(".decimal");
     const back = document.querySelector(".back");
-    
+    const body = document.querySelector('.body')
+
 
 
     let currentNumber= "";
@@ -136,3 +137,21 @@
         //convert back to number
         currentNumber = Number(currentNumber);
     });   
+
+    toggleNightBtn.addEventListener('click', () => {
+        for (i=0; i<button.length; i++){
+            button[i].classList.toggle('nightMode');
+
+        }
+        for (i=0; i<mathFunctions.length; i++){
+            mathFunctions[i].classList.toggle('nightMode');
+        }
+        decimal.classList.toggle('nightMode');
+        back.classList.toggle('nightMode');
+        clear.classList.toggle('nightMode');
+        equal.classList.toggle('nightMode');
+        body.classList.toggle('nightMode');
+        display.classList.toggle('nightMode');
+        toggleNightBtn.classList.toggle('nightMode');
+
+    })
