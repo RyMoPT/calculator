@@ -135,6 +135,7 @@
     background-color: #3e3e3e;
     color: whitesmoke;
     transition: all 0.4s;
+    box-shadow: 1px 1px;
 }
 
 .nightMode {
