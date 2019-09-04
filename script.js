@@ -32,25 +32,7 @@
             default:
             return currentNumber;
         }}
-//     function operate(operator,a,b) {
-//         if (operator === '+') {
-//             return add(a,b);
-//         }
-//         else if (operator === '-') {
-//             return subtract(a,b);
-//         }
-//         else if (operator ==='*' && b===0) {
-//         return multiply(a,1);
-//         }
-//         else if (operator === '/') {
-//             return divide(a,b);
-//         }
-//         else if (operator === '*') {
-//             return multiply(a,b);
-//         }
-        
 
-//    }
     const toggleNightBtn = document.querySelector('.toggleNightBtn')
     const button = document.querySelectorAll('.item');
     const display = document.querySelector(".theDisplay");
@@ -60,6 +42,7 @@
     const decimal = document.querySelector(".decimal");
     const back = document.querySelector(".back");
     const body = document.querySelector('.body')
+    const allBtns = document.querySelectorAll('.btn');
 
 
 
@@ -110,7 +93,7 @@
             display.innerHTML= 'Nice try.';
         }else {
             if (storedNumber.toString().length >= 8) {
-                display.innerHTML = storedNumber.toFixed(4);
+                display.innerHTML = storedNumber.toFixed(3);
             }else { display.innerHTML = storedNumber;}
             currentNumber='';
             
@@ -138,6 +121,7 @@
         currentNumber = Number(currentNumber);
     });   
 
+    // adding button for night mode
     toggleNightBtn.addEventListener('click', () => {
         for (i=0; i<button.length; i++){
             button[i].classList.toggle('nightMode');
@@ -155,3 +139,12 @@
         toggleNightBtn.classList.toggle('nightMode');
 
     })
+// event listener for keyboard functionality
+document.addEventListener('keydown', (event) => {
+    console.log(event);
+    for (i=0; i<allBtns.length; i++) {
+        if (allBtns[i].id == event.key) {
+            allBtns[i].click();
+        }
+    }
+})
